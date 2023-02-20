@@ -4,4 +4,5 @@
 ### cd entertainment-me
 ### npm install
 ### npm run dev
+### http://localhost:5001
 
