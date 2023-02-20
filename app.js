@@ -11,7 +11,7 @@ application.use(express.urlencoded({
 
 application.use(routes)
 
-application.all('*', (req, res, next) => {
+application.all('*', (_req, _res, next) => {
     try {
         throw {
             statusCode: 404,
@@ -22,8 +22,8 @@ application.all('*', (req, res, next) => {
     }
 })
 
-application.use((err, req, res, next) => {
-    let statusCode = err.statusCode || 500
+application.use((err, _req, res, _next) => {
+    const statusCode = err.statusCode || 500
 
     res.status(statusCode).json({
         error: err.message || 'internal server error'
